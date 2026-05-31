@@ -43,4 +43,15 @@ if(Keyboard.current != null)
         }
         spriteRenderer.sprite = sprites[spriteIndex];
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Obstacle"))
+        {
+           FindAnyObjectByType<gameManager>().Gameover();
+        }
+        else if(collision.gameObject.tag == "Scoring")
+        {
+            FindAnyObjectByType<gameManager>().ScoreIncrease();
+        }
+    }
 }
