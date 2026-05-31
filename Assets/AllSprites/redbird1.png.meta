@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8d80227a80c561c4484f332d3f9e903b
+guid: eed91cfdbcb4fbf468f51aa5f05f8020
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7344674569710622627
-    second: bird-1_0
+      213: 2433729696701243241
+    second: redbird1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bird-1_0
+      name: redbird1_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 129
-        height: 117
+        x: 3
+        y: 12
+        width: 128
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d58ad818469721a90800000000000000
-      internalID: -7344674569710622627
+      spriteID: 96f5233c34856c120800000000000000
+      internalID: 2433729696701243241
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bird-1_0: -7344674569710622627
+      redbird1_0: 2433729696701243241
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

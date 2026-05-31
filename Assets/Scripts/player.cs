@@ -3,9 +3,21 @@ using UnityEngine.InputSystem;
 
 public class player : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
+    public Sprite[] sprites;
+    private int spriteIndex;
     public float gravity = -9.8f;
     private Vector3 direction;
     public float strength = 5f;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    private void Start()
+    {
+        InvokeRepeating(nameof(AnimateSprite), 0.15f, 0.15f); 
+    }
     private void Update() {
         bool jumpkey = false;
 if(Keyboard.current != null)
@@ -21,5 +33,14 @@ if(Keyboard.current != null)
 
         direction.y += gravity * Time.deltaTime;
         transform.position += direction * Time.deltaTime;
+    }
+    private void AnimateSprite()
+    {
+        spriteIndex++;
+        if(spriteIndex >= sprites.Length)
+        {
+            spriteIndex = 0;
+        }
+        spriteRenderer.sprite = sprites[spriteIndex];
     }
 }
