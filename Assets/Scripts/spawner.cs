@@ -3,17 +3,36 @@ using UnityEngine;
 public class spawner : MonoBehaviour
 {
  public GameObject prefab;
- public float spawnrate = 1f;
+ public float spawnrate = 2f;
  public float minHeight = -1f;
  public float maxHeight = 1f;
 
+private float currentSpawnRate;
+
     private void OnEnable(){
-        InvokeRepeating(nameof(Spawn), spawnrate, spawnrate) ;
+       currentSpawnRate = spawnrate;
+       StartSpawning();
     }
     private void OnDisable()
     {
-        CancelInvoke(nameof(Spawn));
+        StopSpawning();
     }
+    private  void StartSpawning()
+    {
+        InvokeRepeating(nameof(Spawn), currentSpawnRate, currentSpawnRate);
+     }
+     public void UpdateSpawnRate()
+    {
+        StopSpawning();
+        currentSpawnRate = spawnrate * (5f / Pipes.speed);
+        StartSpawning();
+    }
+    private void StopSpawning()
+    {
+       CancelInvoke(nameof(Spawn));
+    }
+   
+    
  
 
     private void Spawn(){

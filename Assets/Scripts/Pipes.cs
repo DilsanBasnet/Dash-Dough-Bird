@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pipes : MonoBehaviour
 {
-    public float speed = 5f;
+    public static float speed = 5f;
     private float left;
     private void Start()
     {
@@ -11,8 +11,7 @@ public class Pipes : MonoBehaviour
 
     private void Update()
     {
-        if(this == null)
-        return;
+        transform.position += Vector3.left * Time.deltaTime;
 
         transform.position += Vector3.left * speed * Time.deltaTime;
         if(transform.position.x < left){

@@ -7,6 +7,11 @@ public class gameManager : MonoBehaviour
  private int Score;
  private int highScore;
  private int diamonds;
+
+//increasing speed bruh making hard
+  public float Startspeed = 5f;
+  public float speedincrease = 1.2f;
+  public int scorestep = 3;
  public player player;
  public TextMeshProUGUI scoretext;
  public TextMeshProUGUI diamondText;
@@ -23,6 +28,7 @@ public class gameManager : MonoBehaviour
     public void Play() {
         Score = 0;
         diamonds = 0;
+        Pipes.speed = Startspeed;
         scoretext.text = "SCORE : " + Score.ToString();
         diamondText.text = "DIAMOND : " + diamonds.ToString();
        updateHighscore();
@@ -33,6 +39,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 1f;
         player.enabled = true;
         Pipes[] pipes = FindObjectsByType<Pipes>();
+
         for(int i = 0; i < pipes.Length; i++)
         {
             Destroy(pipes[i].gameObject);
@@ -64,9 +71,20 @@ public void ScoreIncrease()
             highScore = Score;
             PlayerPrefs.SetInt("HighScore", highScore);
             PlayerPrefs.Save();
-
-           updateHighscore();
+            updateHighscore();
         }
+
+        if (Score % scorestep == 0) {
+            Pipes.speed += speedincrease;
+            Debug.Log("speed increased" + Pipes.speed);
+            spawner levelSpawner = FindAnyObjectByType<spawner>();
+            
+            if(levelSpawner != null)
+            {
+                levelSpawner.UpdateSpawnRate();
+            }
+        }
+
     }
     private void updateHighscore()
     {
