@@ -67,10 +67,6 @@ if(Keyboard.current != null)
         }
         else if (collision.gameObject.CompareTag("Diamond"))
         {
-            FindAnyObjectByType<gameManager>().IncreaseDiamond();
-            Destroy(collision.gameObject);
-        }
-
         AudioSource diamondAudio = collision.gameObject.GetComponent<AudioSource>();
         if(diamondAudio != null)
         {
@@ -78,6 +74,7 @@ if(Keyboard.current != null)
         }
         FindAnyObjectByType<gameManager>().IncreaseDiamond();
         Destroy(collision.gameObject);
+     }
     }
     
 }

@@ -63,6 +63,7 @@ public void ScoreIncrease()
         {
             highScore = Score;
             PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.Save();
 
            updateHighscore();
         }
