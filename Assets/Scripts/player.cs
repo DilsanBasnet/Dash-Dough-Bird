@@ -54,6 +54,11 @@ if(Keyboard.current != null)
     {
         if(collision.gameObject.CompareTag("Obstacle"))
         {
+            AudioSource playerAudio = GetComponent<AudioSource>();
+            if(playerAudio != null)
+            {
+                playerAudio.Play();
+            }
            FindAnyObjectByType<gameManager>().Gameover();
         }
         else if(collision.gameObject.CompareTag("Scoring"))
@@ -65,6 +70,14 @@ if(Keyboard.current != null)
             FindAnyObjectByType<gameManager>().IncreaseDiamond();
             Destroy(collision.gameObject);
         }
+
+        AudioSource diamondAudio = collision.gameObject.GetComponent<AudioSource>();
+        if(diamondAudio != null)
+        {
+            AudioSource.PlayClipAtPoint(diamondAudio.clip, collision.gameObject.transform.position);
+        }
+        FindAnyObjectByType<gameManager>().IncreaseDiamond();
+        Destroy(collision.gameObject);
     }
     
 }
