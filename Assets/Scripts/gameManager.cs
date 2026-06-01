@@ -5,20 +5,27 @@ using TMPro;
 public class gameManager : MonoBehaviour
 {
  private int Score;
+ private int diamonds;
  public player player;
  public TextMeshProUGUI scoretext;
+ public TextMeshProUGUI diamondText;
  public GameObject PlayButton;
  public GameObject GameOver;
+ public GameObject ExitButton;
     public void Awake() {
         Application.targetFrameRate = 60;
         Pause();
     }
     public void Play() {
         Score = 0;
-        scoretext.text = Score.ToString();
+        diamonds = 0;
+        scoretext.text = "SCORE : " + Score.ToString();
+        diamondText.text = "DIAMOND : " + diamonds.ToString();
 
         PlayButton.SetActive(false);
         GameOver.SetActive(false);
+        ExitButton.SetActive(false);
+
         Time.timeScale = 1f;
         player.enabled = true;
         Pipes[] pipes = FindObjectsByType<Pipes>();
@@ -36,6 +43,8 @@ public class gameManager : MonoBehaviour
     public void Gameover() {
         GameOver.SetActive(true);
         PlayButton.SetActive(true);
+        ExitButton.SetActive(true);
+    
         Pause();
 
         Debug.Log("Game Over");
@@ -46,4 +55,13 @@ public void ScoreIncrease()
         Score++;
         scoretext.text = " SCORE : " + Score.ToString();
     }
-}
+    public void IncreaseDiamond()
+    {
+        diamonds++;
+        diamondText.text = "DIAMOND : " + diamonds.ToString();
+    }
+    public void QuitGame()
+    {
+      Application.Quit();
+      Debug.Log("Game Quit");  
+    }}

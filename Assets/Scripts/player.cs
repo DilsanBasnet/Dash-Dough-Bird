@@ -56,9 +56,14 @@ if(Keyboard.current != null)
         {
            FindAnyObjectByType<gameManager>().Gameover();
         }
-        else if(collision.gameObject.tag == "Scoring")
+        else if(collision.gameObject.CompareTag("Scoring"))
         {
             FindAnyObjectByType<gameManager>().ScoreIncrease();
+        }
+        else if (collision.gameObject.CompareTag("Diamond"))
+        {
+            FindAnyObjectByType<gameManager>().IncreaseDiamond();
+            Destroy(collision.gameObject);
         }
     }
     
