@@ -307,8 +307,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18, y: -84}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 24.0041, y: -57.74353}
+  m_SizeDelta: {x: 96.0294, y: 93.9551}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223299077
 MonoBehaviour:
@@ -1633,7 +1633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::spawner
   prefab: {fileID: 4752783013331154091, guid: 4299cb9cc04648841aef250cb818eb4a, type: 3}
-  spawnrate: 1.5
+  spawnrate: 1.3
   minHeight: -2.5
   maxHeight: 2.5
 --- !u!4 &1968353993
